@@ -1,6 +1,6 @@
 {
-  "name": "nextcord-jukebox-client",
-  "description": "A RPC Client for Nextcord Jukebox",
+  "name": "rystal-music-rpc",
+  "description": "A RPC Client for Rystal Music",
   "version": "0.1.0b",
   "main": "main.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "dist": "electron-builder"
   },
   "build": {
-    "productName": "Nextcord Jukebox Client",
+    "productName": "Rystal Music RPC Client",
     "appId": "com.nextcord-jukebox-client.app",
     "copyright": "© 2024 Rystal",
     "win": {

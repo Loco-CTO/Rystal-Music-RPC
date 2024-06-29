@@ -30,7 +30,7 @@ if (!gotTheLock) {
 			icon: path.join(__dirname, "icon.ico"),
 			width: 350,
 			height: 450,
-			resizable: true,
+			resizable: false,
 			webPreferences: {
 				nodeIntegration: true,
 				contextIsolation: false,
