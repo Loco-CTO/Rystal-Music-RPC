@@ -11,7 +11,11 @@
 		<style>
 			body,
 			html {
-				user-select: none; /* Disable text selection */
+				user-select: none;
+			}
+
+			body {
+				background-color: #16181d;
 			}
 
 			.hover-scale img {
@@ -23,7 +27,7 @@
 			}
 
 			.bg-green {
-				background-color: #4caf50;
+				background-color: #42ae46 !important;
 			}
 
 			.btn-transition {
@@ -32,18 +36,23 @@
 
 			#errorText {
 				color: red;
-				font-size: 0.875rem; /* Small text size */
+				font-size: 0.875rem;
 				visibility: hidden;
 			}
 
-			/* Adjust input width */
 			#secretInput {
-				width: 60%; /* Adjust width as needed */
+				width: 60%;
+			}
+
+			#secretInput:focus {
+				outline: none;
+				border-color: rgba(0, 0, 0, 0);
+				box-shadow: 0 0 0 3px #2b67ab, 0 0 8px #2b67ab;
 			}
 		</style>
 	</head>
 	<body
-		class="flex flex-col items-center justify-between h-screen bg-gray-900 text-gray-100"
+		class="flex flex-col items-center justify-between h-screen text-gray-100"
 	>
 		<header class="w-full py-6 text-center">
 			<h1 class="text-3xl font-extrabold py-2">Jukebox RPC</h1>
@@ -52,6 +61,7 @@
 			<button
 				id="toggleButton"
 				class="hover-scale bg-gray-700 rounded-full p-4 btn-transition"
+				style="background-color: #1c1f26"
 			>
 				<img src="toggle.png" alt="Toggle Button" class="rounded-lg" />
 			</button>
@@ -62,8 +72,8 @@
 					type="text"
 					id="secretInput"
 					placeholder="Enter secret"
-					class="bg-gray-800 border border-gray-700 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
-					style="text-align: center"
+					class="bg-gray-800 text-white rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-opacity-100 transition duration-300"
+					style="text-align: center; background-color: #1c1f26; color: white"
 				/>
 				<span id="errorText">Please enter the secret</span>
 			</div>
