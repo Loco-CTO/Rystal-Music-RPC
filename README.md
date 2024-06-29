@@ -24,6 +24,8 @@
 </div>
 
 ## Setup
+**This is designed specifically for the official Rystal Music Bot instance. If you have hosted your own version, you will need to create your own distribution using Nextcord Jukebox RPC Client.**
+
 Download the latest [release](https://github.com/Rystal-Team/Rystal-Music-RPC/releases/latest) from [Releases](https://github.com/Rystal-Team/Rystal-Music-RPC/releases).
 
 You can either choose Client Setup which would automatically install the program on your computer. Or you could choose the unpack version which does not require any installation.
