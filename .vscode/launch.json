@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "outputCapture": "std",
+            "type": "node",
+            "request": "launch",
+            "name": "Launch via NPM#3",
+            "runtimeExecutable": "npm",
+            "windows": {
+                "runtimeExecutable": "npm.cmd"
+            },
+            "runtimeArgs": [
+
+                "start"
+            ],
+            "console": "internalConsole",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program#1",
+            "program": "main.js",
+            
+            "cwd": "${workspaceRoot}"
+        }
+
+    ]
+}
+
