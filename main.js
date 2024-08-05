@@ -1,3 +1,5 @@
+// main.js
+
 const { app, BrowserWindow, Tray, Menu, ipcMain } = require("electron");
 const path = require("path");
 const fs = require("fs");
@@ -6,12 +8,13 @@ const yaml = require("js-yaml");
 let mainWindow;
 let tray = null;
 
-// Obtain the single instance lock
+// シングルインスタンスロックの取得
 const gotTheLock = app.requestSingleInstanceLock();
 
 if (!gotTheLock) {
 	app.quit();
 } else {
+	// 2つ目のインスタンスが開かれた時の処理
 	app.on("second-instance", (event, commandLine, workingDirectory) => {
 		if (mainWindow) {
 			if (mainWindow.isMinimized()) mainWindow.restore();
@@ -24,6 +27,7 @@ if (!gotTheLock) {
 
 	const { version } = require("./package.json");
 
+	// メインウィンドウの作成
 	function createMainWindow() {
 		mainWindow = new BrowserWindow({
 			title: "Jukebox RPC Client",
@@ -56,21 +60,22 @@ if (!gotTheLock) {
 			mainWindow = null;
 		});
 
+		// システムトレイの設定
 		tray = new Tray(path.join(__dirname, "icon.ico"));
 		const contextMenu = Menu.buildFromTemplate([
 			{
-				label: `Build Version ${version}`,
+				label: `ビルドバージョン ${version}`,
 				enabled: false,
 			},
 			{ type: "separator" },
 			{
-				label: "Show App",
+				label: "アプリを表示",
 				click: () => {
 					mainWindow.show();
 				},
 			},
 			{
-				label: "Quit",
+				label: "終了",
 				click: () => {
 					app.isQuitting = true;
 					app.quit();
@@ -85,6 +90,13 @@ if (!gotTheLock) {
 
 		mainWindow.webContents.on("did-finish-load", () => {
 			mainWindow.webContents.send("config", config);
+
+			// オートスタートの状態を取得し、レンダラープロセスに送信
+			const autoStartSettings = app.getLoginItemSettings();
+			mainWindow.webContents.send(
+				"autostartStatus",
+				autoStartSettings.openAtLogin
+			);
 		});
 	}
 
@@ -102,5 +114,14 @@ if (!gotTheLock) {
 		} else {
 			mainWindow.show();
 		}
+	});
+
+	// オートスタートのトグル処理
+	ipcMain.on("toggleAutostart", (event, isEnabled) => {
+		const autostartPath = app.getPath("exe");
+		app.setLoginItemSettings({
+			openAtLogin: isEnabled,
+			path: autostartPath,
+		});
 	});
 }

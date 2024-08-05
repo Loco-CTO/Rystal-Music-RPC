@@ -1,7 +1,7 @@
 {
   "name": "rystal-music-rpc",
   "description": "A RPC Client for Rystal Music",
-  "version": "0.1.0b",
+  "version": "0.2.2b",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -26,13 +26,18 @@
     }
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Rystal",
+    "email": "contact@rystal.xyz",
+    "url": "https://www.rystal.xyz"
+  },
   "license": "MIT",
   "devDependencies": {
     "electron": "^31.0.2",
     "electron-builder": "^24.13.3"
   },
   "dependencies": {
+    "auto-launch": "^5.0.6",
     "discord-rich-presence": "^0.0.8",
     "js-yaml": "^4.1.0"
   }
