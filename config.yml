@@ -3,7 +3,7 @@ header: Rystal Music RPC
 toggle_button_image: "toggle.png"
 secret_input_placeholder: "Your Secret"
 error_text: "Please enter a secret!"
-websocket_url: "ws://78.108.218.193:25571"
+websocket_url: "wss://rpc.rystal.xyz"
 client_id: "1202320335270334534"
 large_image_key: "music_icon"
 large_image_text: "Rystal V6"
