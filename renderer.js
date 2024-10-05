@@ -206,8 +206,8 @@ function startWebSocket(config, sessionId) {
 							console.error("Failed to set Discord activity:", error);
 						});
 				} else if (message.state === "playing" && message.data) {
-					const { title, url, channel } = message.data;
-					updateDiscordActivity({ title, url, channel });
+					const { title, url, channel, thumbnail } = message.data;
+					updateDiscordActivity({ title, url, channel, thumbnail });
 				} else {
 					console.log("Received message with state:", message.state);
 				}
@@ -265,8 +265,10 @@ function updateDiscordActivity(data) {
 				details: data.title,
 				state: `By ${data.channel}`,
 				startTimestamp: Date.now(),
-				largeImageKey: config.large_image_key,
-				largeImageText: config.large_image_text,
+				largeImageKey: data.thumbnail,
+				largeImageText: data.title,
+				smallImageKey: config.large_image_key,
+				smallImageText: config.large_image_text,
 				buttons: [
 					{
 						label: config.youtube_label,
