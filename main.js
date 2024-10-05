@@ -64,18 +64,18 @@ if (!gotTheLock) {
 		tray = new Tray(path.join(__dirname, "icon.ico"));
 		const contextMenu = Menu.buildFromTemplate([
 			{
-				label: `ビルドバージョン ${version}`,
+				label: `Version ${version}`,
 				enabled: false,
 			},
 			{ type: "separator" },
 			{
-				label: "アプリを表示",
+				label: "Show",
 				click: () => {
 					mainWindow.show();
 				},
 			},
 			{
-				label: "終了",
+				label: "Exit",
 				click: () => {
 					app.isQuitting = true;
 					app.quit();

@@ -30,6 +30,9 @@ Download the latest [release](https://github.com/Rystal-Team/Rystal-Music-RPC/re
 
 You can either choose Client Setup which would automatically install the program on your computer. Or you could choose the unpack version which does not require any installation.
 
+## Example
+![Example](example.png)
+
 ## Built With
 This program is built with and powered by the followings
 - [![NodeJS](https://img.shields.io/badge/NodeJS-ffffff?style=for-the-badge&logo=node.js&logoColor=5FA04E)](https://nodejs.org)
@@ -44,5 +47,5 @@ Check out Sparked Host! As cheap as $1 per month!<br>
 
 
 <div align="center">
-  <p><small>Copyright © 2024 <a href="https://rystal.xyz">RystalTeam</a>. All rights reserved.</small></p>
+  <p><small>Copyright © 2024 <a href="https://rystal.net">Rystal</a>. All rights reserved.</small></p>
 </div>
